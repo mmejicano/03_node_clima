@@ -1,8 +1,10 @@
 import axios from "axios";
 import "dotenv/config";
+import fs from "fs";
 
 export class Busquedas {
-  historial = "";
+  historial = [];
+  dbPath = "./db/database.json";
   constructor() {
     // TODO: leer db
   }
@@ -62,5 +64,23 @@ export class Busquedas {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  agregarHistorial(lugar = "") {
+    // TODO: prevenir duplicados
+    if (this.historial.includes(lugar.toLocaleLowerCase())) {
+      return;
+    }
+    this.historial.unshift(lugar);
+
+    // guardar en DB
+    this.guardarDB();
+  }
+
+  guardarDB() {
+    const payload = {
+      historial: this.historial
+    };
+    fs.writeFileSync(this.dbPath, JSON.stringify(payload));
   }
 }

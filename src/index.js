@@ -22,8 +22,12 @@ const main = async () => {
 
         // seleccionar el lugar
         const id = await listarLugares(lugares);
+        if (id === "0") continue;
+
         const lugarSel = lugares.find((l) => l.id === id);
         //console.log(lugarSel);
+        // guardar en db historial
+        busquedas.agregarHistorial(lugarSel.nombre);
 
         // clima
         const clima = await busquedas.climaLugar(lugarSel.lnt, lugarSel.lng);
