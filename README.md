@@ -12,6 +12,7 @@
 6. apis: openweather + mapbox
 7. array method: .find()
 8. dotenv: file .env + import "dotenv/config" + process.env.MY_VARIABLES + .gitignore
+9. .join() .substring() .toUpperCase() .spli() .amp() toLocaleLowerCase splice() .includes()
 
 https://home.openweathermap.org/api_keys
 https://docs.mapbox.com/api/search/geocoding/
