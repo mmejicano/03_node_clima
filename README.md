@@ -13,5 +13,5 @@
 7. array method: .find()
 8. dotenv: file .env + import "dotenv/config" + process.env.MY_VARIABLES + .gitignore
 
-openweather.org
+https://home.openweathermap.org/api_keys
 https://docs.mapbox.com/api/search/geocoding/
